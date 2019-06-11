@@ -70,6 +70,11 @@ describe('getLatestKinesisRecords', () => {
         expect(kinesisMock.getShardIterator.mock.calls[0][0].StreamName).toBe('experiments-eventstream-qa');
     });
 
+    it('calls the getShardIterator request with PROD event stream name if paramater passed', async () => {
+        await getLatestKinesisRecords.getLatestKinesisRecordsTool('prod');
+        expect(kinesisMock.getShardIterator.mock.calls[0][0].StreamName).toBe('experiments-eventstream-prod');
+    });
+
     it('calls the getShardIterator request with timestamp from designated number of minutes in the past', async () => {
         await getLatestKinesisRecords.getLatestKinesisRecordsTool('dev', 10);
         const getRecordsTimestamp = new Date();
