@@ -15,7 +15,7 @@
     "events",
     "aws"
   ],
-  "author": "***REMOVED*** ***REMOVED***",
+  "author": "Erin Eland",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.415.0"
